@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+    
+before_install:
+  - docker build -t pvossen/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run pvossen/docker-react npm run test -- --coverage
